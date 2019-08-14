@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <tabs>
+    <pixlee translate="label" module="pixlee">
+      <label><![CDATA[<div>Pixlee</div>]]></label>
+      <class>pixlee-base</class>
+      <sort_order>100</sort_order>
+    </pixlee>
+  </tabs>
+  <sections>
+    <pixlee translate="label" module="pixlee">
+      <label>Pixlee Account Configuration</label>
+      <tab>pixlee</tab>
+      <sort_order>1000</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <pixlee translate="label" module="pixlee">
+          <label>API Credentials</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>1</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <comment><![CDATA[You can find your API credentials under <strong>Settings > Pixlee API</strong> in the Pixlee web application. The user ID, api key, and secret key are all necessary to connect to Pixlee.]]></comment>
+          <fields>
+            <account_id translate="label">
+              <label><![CDATA[Account ID <span style="color:#F00">*</span>]]></label>
+              <frontend_type>text</frontend_type>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </account_id>
+            <account_api_key translate="label">
+              <label><![CDATA[Account API Key <span style="color:#F00">*</span>]]></label>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </account_api_key>
+            <recipe_id translate="label">
+              <label>Recipe ID</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>40</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>You can get this from the "Publish Products" button under "My Albums."</comment>
+            </recipe_id>
+            <display_options_id translate="label">
+              <label>Display Options ID</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>50</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>You can get this from the "Publish Products" button under "My Albums."</comment>
+            </display_options_id>
+            <check translate="label">
+              <label>Export Products</label>
+              <frontend_type>button</frontend_type>
+              <frontend_model>pixlee/adminhtml_system_config_form_export</frontend_model>
+              <sort_order>60</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </check>
+          </fields>
+        </pixlee>
+      </groups>
+    </pixlee>
+  </sections>
+</config>

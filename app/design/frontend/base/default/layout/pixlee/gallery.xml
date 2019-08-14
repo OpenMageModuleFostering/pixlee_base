@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <!--
+       To implement the Pixlee gallery, insert the "pixlee_gallery_tag"
+       update handle in the layout XML for your page. Example:
+
+       <catalog_product_view translate="label">
+         <update handle="pixlee_gallery_tag" />
+       </catalog_product_view>
+
+       Once you've added the update handle, the Pixlee external JS script
+       will be embedded in the head of the page and you should be able to
+       make the following call anywhere on that page:
+
+       <?php echo $this->getLayout()->createBlock('pixlee/gallery')->toHtml(); ?>
+
+       The above will embed the Pixlee gallery in place and handle any
+       responsive design you can throw at it.
+
+       The Pixlee extension will attempt to discern the current product's
+       SKU automatically in order to display the correct gallery, but if
+       it is unable to do so you can explicitly set the product SKU with
+       the "setProductSku" function like so:
+
+       <?php echo $this->getLayout()->createBlock('pixlee/gallery')->setProductSku($SKU)->toHtml(); ?>
+   -->
+  <pixlee_gallery_tag translate="label">
+    <label>Pixlee gallery and external script</label>
+
+    <reference name="head">
+      <!-- <block type="core/text" name="pixlee_external_js" as="pixlee_external_js">
+        <action method="setText"><text><![CDATA[<script src="//assets.pixlee.com/javascripts/embed/widget/pixlee_widget.v2.js"></script>]]></text></action>
+      </block> -->
+    </reference>
+
+  </pixlee_gallery_tag>
+
+  <default translate="label">
+   <update handle="pixlee_gallery_tag" />
+  </default>
+
+  <catalog_product_view>
+    <reference name="head">
+      <action method="addJs"><script>pixlee/getAnalyticsCookie.js</script></action>
+    </reference>
+  </catalog_product_view>
+
+</layout>

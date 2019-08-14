@@ -1,0 +1,33 @@
+<?php
+$helper = Mage::helper('pixlee');
+$productSku = $this->getProductSku();
+if($helper->isActive() && !empty($productSku)):
+  $pixleeAccountId = $this->getAccountId();
+  $pixleeRecipeId = $this->getRecipeId();
+  $pixleeDisplayOptionsId = $this->getDisplayOptionsId();
+  $pixleeAccountApiKey = $this->getAccountApiKey();
+?>
+<div id="pixlee_container"></div>
+		<div id="pixlee_widget_master_container"></div>
+<script id="pixlee_script">
+
+	window.PixleeAsyncInit = function() {
+	    Pixlee.init({
+	        apiKey: '<?php echo $pixleeAccountApiKey; ?>'
+	    });
+	    Pixlee.addProductWidget({
+    		skuId: '<?php echo $productSku; ?>',
+    		recipeId: <?php echo $pixleeRecipeId; ?>,
+    		displayOptionsId: <?php echo $pixleeDisplayOptionsId; ?>,
+    		type:"horizontal",
+    		accountId:<?php echo $pixleeAccountId; ?>
+	    });
+	};
+</script>
+    <script src="https://assets.pixlee.com/assets/pixlee_widget_1_0_0.js"></script>
+
+<?php elseif(empty($productSku)): ?>
+  <!-- Could not display the Pixlee gallery. No product SKU found. Try explicitly setting one with the "setProductSku" function after creating the block. -->
+<?php else: ?>
+  <!-- Could not display the Pixlee gallery. Make sure all the required credentials are saved in the Magento admin panel! -->
+<?php endif; ?>
